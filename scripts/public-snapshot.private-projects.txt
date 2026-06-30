@@ -1,0 +1,12 @@
+# One project folder name per line. These projects are removed from public snapshots.
+Hermes
+Instagram
+Telegram_NeAGI
+codex
+game-001
+reefiki
+metrica
+mimo
+Security Guidance
+security-guidance-lite
+Suno

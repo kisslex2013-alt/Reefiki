@@ -1,0 +1,2 @@
+# One project folder name per line. These projects are intentionally kept in public snapshots.
+reefiki-demo

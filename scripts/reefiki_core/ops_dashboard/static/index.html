@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>REEFIKI Ops Dashboard v2</title>
+  <link rel="stylesheet" href="/static/theme.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__title">
+      <h1>REEFIKI Ops Dashboard</h1>
+      <p class="subtitle" data-i18n="subtitle">Local read-only overview</p>
+    </div>
+    <div class="topbar__controls">
+      <label class="control">
+        <span data-i18n="language">Language</span>
+        <select id="lang">
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </select>
+      </label>
+      <label class="control">
+        <span data-i18n="theme">Theme</span>
+        <select id="theme">
+          <option value="dark" data-i18n="dark">Dark</option>
+          <option value="light" data-i18n="light">Light</option>
+        </select>
+      </label>
+      <label class="control">
+        <span data-i18n="interval">Interval</span>
+        <select id="interval">
+          <option value="0" data-i18n="off">Off</option>
+          <option value="30000" data-i18n="s30">30s</option>
+          <option value="120000" data-i18n="m2">2m</option>
+        </select>
+      </label>
+      <button id="refresh" type="button" data-i18n="refresh">Refresh</button>
+      <span id="last-refresh" class="last-refresh"></span>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="first-run" id="first-run" aria-labelledby="first-run-title">
+      <button
+        class="ghost first-run__dismiss"
+        id="first-run-dismiss"
+        type="button"
+        data-i18n="first-run.dismiss"
+        data-i18n-aria-label="first-run.dismiss"
+      >Hide</button>
+      <div class="first-run__copy">
+        <span class="eyebrow" data-i18n="first-run.eyebrow">Safe local tour</span>
+        <h2 id="first-run-title" data-i18n="first-run.title">First run</h2>
+        <p data-i18n="first-run.subtitle">Preview the REEFIKI path, create a local demo, then inspect the workspace board.</p>
+      </div>
+      <ol class="first-run__steps" id="first-run-steps" aria-label="First run commands">
+        <li>
+          <span class="step-index">01</span>
+          <strong data-i18n="first-run.preview">Preview</strong>
+          <code>reefiki onboarding</code>
+        </li>
+        <li>
+          <span class="step-index">02</span>
+          <strong data-i18n="first-run.demo">Demo</strong>
+          <code>reefiki ops-dashboard demo</code>
+        </li>
+        <li>
+          <span class="step-index">03</span>
+          <strong data-i18n="first-run.inspect">Inspect</strong>
+          <code>http://127.0.0.1:7310</code>
+        </li>
+      </ol>
+    </section>
+
+    <section class="kpi-strip" aria-label="Workspace summary">
+      <div class="kpi" id="kpi"></div>
+    </section>
+
+    <section class="board">
+      <div class="board__left">
+        <section class="card current-lane">
+          <div class="card__head current-lane__head">
+            <div>
+              <h2 data-i18n="current-work">Current work</h2>
+              <p class="muted" id="current-work-summary"></p>
+            </div>
+          </div>
+          <div class="current-lane__grid" id="current-work"></div>
+        </section>
+
+        <div class="card projects-card" id="projects">
+          <div class="card__head">
+            <div>
+              <h2 data-i18n="projects">Projects</h2>
+              <p class="muted" data-i18n="projects-subtitle">Real workspace state from /api/snapshot</p>
+            </div>
+            <span class="muted" id="projects-count"></span>
+          </div>
+          <table class="projects-table">
+            <thead>
+              <tr>
+                <th class="col-pin" data-i18n-aria-label="pin-column-title" title="Pin">★</th>
+                <th class="col-num" data-i18n="col-num">#</th>
+                <th data-i18n="col-name">Name</th>
+                <th data-i18n="col-branch">Branch</th>
+                <th data-i18n="col-state">State</th>
+                <th data-i18n="col-gates">Gates</th>
+                <th data-i18n="col-last">Last activity</th>
+                <th data-i18n="col-mapping">REEFIKI</th>
+              </tr>
+            </thead>
+            <tbody id="projects-tbody"></tbody>
+          </table>
+        </div>
+
+        <section class="card inspector" id="inspector">
+          <div class="card__head">
+            <h2 data-i18n="inspector">Inspector</h2>
+            <button class="ghost" id="inspector-close" type="button" data-i18n="close" data-i18n-aria-label="close-inspector" hidden>×</button>
+          </div>
+          <div class="inspector__body" id="inspector-body">
+            <p class="muted" data-i18n="empty">Select a project to inspect.</p>
+          </div>
+        </section>
+      </div>
+
+      <aside class="board__right">
+        <section class="card reefiki-panel" id="reefiki-control"></section>
+
+        <section class="card rail-card">
+          <div class="card__head rail__head">
+            <div>
+              <h2 data-i18n="signals">Signals</h2>
+              <p class="muted" id="rail-caption"></p>
+            </div>
+            <div class="panel-switch">
+              <button id="panel-activity" class="is-active" type="button" data-i18n="panel.activity">Activity</button>
+              <button id="panel-logs" type="button" data-i18n="panel.logs">Live logs</button>
+            </div>
+          </div>
+
+          <div id="activity-panel">
+            <div class="rail-meta">
+              <span class="muted" data-i18n="activity">Activity</span>
+              <span class="badge" id="activity-count"></span>
+            </div>
+            <ul class="activity-list" id="activity-list"></ul>
+          </div>
+
+          <div id="logs-panel" hidden>
+            <div class="logs-toolbar">
+              <label class="control control--grow">
+                <span data-i18n="logs-source">Log source</span>
+                <select id="logs-source"></select>
+              </label>
+              <button id="logs-reconnect" type="button" data-i18n="logs-reconnect">Reconnect</button>
+              <span class="badge" id="logs-status"></span>
+            </div>
+            <p class="muted logs-meta" id="logs-meta"></p>
+            <div class="agent-logs" id="live-logs"></div>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <template id="tpl-kpi-cell">
+    <div class="kpi__cell">
+      <span class="kpi__label" data-field="label"></span>
+      <strong class="kpi__value" data-field="value"></strong>
+    </div>
+  </template>
+
+  <template id="tpl-reefiki">
+    <div class="reefiki-panel__content">
+      <div class="reefiki-panel__head">
+        <div>
+          <h2 data-i18n="reefiki">REEFIKI</h2>
+          <p class="muted" data-field="next-action"></p>
+        </div>
+        <span class="badge" data-field="health"></span>
+      </div>
+      <dl class="kv">
+        <dt data-i18n="phase">Phase</dt><dd data-field="phase"></dd>
+        <dt data-i18n="sprint">Sprint</dt><dd data-field="sprint"></dd>
+        <dt data-i18n="active-task">Active task</dt><dd data-field="active-task"></dd>
+        <dt data-i18n="next-task">Next task</dt><dd data-field="next-task"></dd>
+        <dt data-i18n="review-top">Review queue</dt><dd data-field="review-top"></dd>
+        <dt data-i18n="last-log">Last log</dt><dd data-field="last-log"></dd>
+      </dl>
+    </div>
+  </template>
+
+  <template id="tpl-work-card">
+    <article class="work-card" tabindex="0" role="button">
+      <div class="work-card__head">
+        <strong data-field="name"></strong>
+        <span class="badge" data-field="state"></span>
+      </div>
+      <p class="work-card__detail muted" data-field="reason"></p>
+      <p class="work-card__action" data-field="action"></p>
+    </article>
+  </template>
+
+  <template id="tpl-activity-item">
+    <li class="activity-item" tabindex="0" role="button">
+      <span class="activity-item__kind" data-field="kind"></span>
+      <div class="activity-item__body">
+        <div class="activity-item__title" data-field="title"></div>
+        <div class="activity-item__meta muted">
+          <span data-field="project"></span>
+          <span data-field="ago"></span>
+        </div>
+      </div>
+    </li>
+  </template>
+
+  <template id="tpl-project-row">
+    <tr tabindex="0" role="button">
+      <td class="col-pin"><button class="icon-button pin-button" type="button" data-field="pin"></button></td>
+      <td class="col-num"><span class="row-num" data-field="index"></span></td>
+      <td data-field="name"></td>
+      <td><code class="branch-chip" data-field="branch"></code></td>
+      <td><span class="table-badge" data-field="state"></span></td>
+      <td><span class="table-badge" data-field="gates"></span></td>
+      <td data-field="ago"></td>
+      <td data-field="mapping-cell"></td>
+    </tr>
+  </template>
+
+  <template id="tpl-detail-kv">
+    <div class="kv-row">
+      <span class="kv-row__label" data-field="label"></span>
+      <span class="kv-row__value" data-field="value"></span>
+    </div>
+  </template>
+
+  <template id="tpl-log-entry">
+    <li class="log-entry">
+      <span class="log-entry__heading" data-field="heading"></span>
+      <span class="muted" data-field="body"></span>
+    </li>
+  </template>
+
+  <template id="tpl-live-log-line">
+    <div class="log-line">
+      <span class="log-time" data-field="time"></span>
+      <span class="log-level" data-field="level"></span>
+      <span class="log-text" data-field="text"></span>
+    </div>
+  </template>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

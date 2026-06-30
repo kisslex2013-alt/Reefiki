@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>REEFIKI - Local-first distillation wiki for AI agents</title>
+    <meta
+      name="description"
+      content="REEFIKI turns AI-session noise into reusable decisions, skills, sources, synthesis, and project memory."
+    >
+    <link rel="icon" href="../assets/reefiki-mascot.png">
+    <link rel="stylesheet" href="styles.css?v=theme-readability-20260615">
+  </head>
+  <body>
+    <div class="marine-atmosphere" aria-hidden="true">
+      <div class="marine-bubbles">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="marine-fish fish-one"></div>
+      <div class="marine-fish fish-two"></div>
+      <div class="marine-fish fish-three"></div>
+      <div class="marine-kelp kelp-left">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <div class="marine-kelp kelp-right">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+    <header class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="REEFIKI home">
+        <img src="../assets/reefiki-mascot.png" alt="" class="brand-mark" width="672" height="562" decoding="async">
+        <span>REEFIKI</span>
+      </a>
+      <nav class="nav-links" aria-label="Page sections">
+        <a href="#flow" data-i18n="nav.flow">Flow</a>
+        <a href="#token-economy" data-i18n="nav.tokens">Tokens</a>
+        <a href="#safety" data-i18n="nav.safety">Safety</a>
+        <a href="https://github.com/kisslex2013-alt/reefiki">GitHub</a>
+      </nav>
+      <div class="header-controls" aria-label="Display controls">
+        <div class="segmented" role="group" aria-label="Language">
+          <button class="control-button is-active" type="button" data-lang-toggle="en" aria-pressed="true">EN</button>
+          <button class="control-button" type="button" data-lang-toggle="ru" aria-pressed="false">RU</button>
+        </div>
+        <button class="control-button theme-button" type="button" data-theme-toggle aria-label="Switch color theme">
+          <span data-theme-label>Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Markdown memory for agent work</p>
+          <h1 id="hero-title">REEFIKI</h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle">Local-first distillation wiki for AI agents.</p>
+          <p class="hero-copy" data-i18n="hero.copy">
+            Turns chat noise into reusable decisions, skills, and project memory.
+          </p>
+        </div>
+
+        <div class="hero-scene reveal reef-video-card hero-video-card" aria-label="Underwater distillation loop from noisy chat into reusable memory">
+          <div class="reef-aura" aria-hidden="true"></div>
+          <video
+            class="reef-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="../assets/video/reefiki-distillation-poster.webp"
+            data-reef-video
+            aria-label="Underwater distillation animation for REEFIKI project memory"
+          >
+            <source src="../assets/video/reefiki-distillation.webm" type="video/webm">
+            <source src="../assets/video/reefiki-distillation.mp4" type="video/mp4">
+          </video>
+          <div class="reef-video-scrim" aria-hidden="true"></div>
+        </div>
+        <div class="hero-cta-panel reveal">
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="../QUICKSTART.md#english" data-href-en="../QUICKSTART.md#english" data-href-ru="../QUICKSTART.md#русский" data-i18n="cta.getStarted">Get started</a>
+            <a class="button button-secondary" href="../docs/INSTALL.md#english" data-href-en="../docs/INSTALL.md#english" data-href-ru="../docs/INSTALL.md#русский" data-i18n="cta.readDocs">Read docs</a>
+            <a class="button button-ghost" href="https://github.com/kisslex2013-alt/reefiki" data-i18n="cta.github">View GitHub</a>
+          </div>
+          <div class="trust-strip" aria-label="Project trust signals">
+            <span>Apache 2.0</span>
+            <span data-i18n="trust.markdown">Markdown files</span>
+            <span data-i18n="trust.git">Git history</span>
+            <span data-i18n="trust.agents">Agent-agnostic</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section problem-section" id="problem" aria-labelledby="problem-title">
+        <div class="section-inner problem-layout">
+          <div class="section-copy problem-copy reveal">
+            <p class="eyebrow" data-i18n="problem.eyebrow">The failure mode</p>
+            <h2 id="problem-title" data-i18n="problem.title">AI agents forget between threads.</h2>
+          </div>
+          <figure class="problem-proof reveal problem-video-card">
+            <div class="reef-video-card problem-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-problem-context-poster.webp"
+                data-reef-video
+                aria-label="Underwater animation showing agent context fragments drifting away"
+              >
+                <source src="../assets/video/reefiki-problem-context.webm" type="video/webm">
+                <source src="../assets/video/reefiki-problem-context.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="problem.caption">The failure is visible: decisions drift away before they become reusable memory.</figcaption>
+          </figure>
+          <div class="problem-list reveal" role="list">
+            <p role="listitem"><strong data-i18n="problem.item1Title">Decisions stay in chats.</strong> <span data-i18n="problem.item1Body">Nobody knows why the project turned left.</span></p>
+            <p role="listitem"><strong data-i18n="problem.item2Title">Useful procedures vanish.</strong> <span data-i18n="problem.item2Body">A fix becomes a story instead of a reusable skill.</span></p>
+            <p role="listitem"><strong data-i18n="problem.item3Title">The next agent starts cold.</strong> <span data-i18n="problem.item3Body">Context gets reread, guessed, or lost.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section flow-section" id="flow" aria-labelledby="flow-title">
+        <div class="section-inner flow-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="flow.eyebrow">How it works</p>
+            <h2 id="flow-title" data-i18n="flow.title">Capture -> Filter -> Save -> Link -> Recall.</h2>
+            <p data-i18n="flow.copy">
+              REEFIKI is not a chat archive. It is a distillation loop that lets an agent leave
+              a precise trail for the next agent.
+            </p>
+          </div>
+          <figure class="flow-proof reveal flow-video-card">
+            <div class="reef-video-card flow-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-flow-poster.webp"
+                data-reef-video
+                aria-label="Underwater animation showing the REEFIKI distillation flow"
+              >
+                <source src="../assets/video/reefiki-flow.webm" type="video/webm">
+                <source src="../assets/video/reefiki-flow.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="flow.caption">A repeatable loop: collect, filter, save, link, and recall.</figcaption>
+          </figure>
+          <ol class="flow-rail reveal" aria-label="REEFIKI distillation steps">
+            <li>
+              <span class="step-index">01</span>
+              <strong data-i18n="flow.step1Title">Capture</strong>
+              <p data-i18n="flow.step1Body">Sources, notes and session conclusions enter a project inbox.</p>
+            </li>
+            <li>
+              <span class="step-index">02</span>
+              <strong data-i18n="flow.step2Title">Filter</strong>
+              <p data-i18n="flow.step2Body">The agent keeps material only when it can be reused later.</p>
+            </li>
+            <li>
+              <span class="step-index">03</span>
+              <strong data-i18n="flow.step3Title">Save</strong>
+              <p data-i18n="flow.step3Body">Useful knowledge becomes markdown decisions, skills or synthesis.</p>
+            </li>
+            <li>
+              <span class="step-index">04</span>
+              <strong data-i18n="flow.step4Title">Link</strong>
+              <p data-i18n="flow.step4Body">Index, log and references keep the memory navigable.</p>
+            </li>
+            <li>
+              <span class="step-index">05</span>
+              <strong data-i18n="flow.step5Title">Recall</strong>
+              <p data-i18n="flow.step5Body">The next agent reads bounded context instead of the whole chat history.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section token-section" id="token-economy" aria-labelledby="token-title">
+        <div class="section-inner token-layout">
+          <div class="token-copy reveal">
+            <p class="eyebrow" data-i18n="token.eyebrow">Token economy</p>
+            <h2 id="token-title" data-i18n="token.title">Less context rereading. More reusable memory.</h2>
+            <p data-i18n="token.copy">
+              These are rough ranges, not benchmarks or guarantees. The gain comes from reading
+              selected markdown memory instead of dragging every prior thread forward.
+            </p>
+          </div>
+          <figure class="token-proof reveal token-video-card">
+            <div class="reef-video-card token-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-token-economy-poster.webp"
+                data-reef-video
+                aria-label="Underwater token economy animation for REEFIKI"
+              >
+                <source src="../assets/video/reefiki-token-economy.webm" type="video/webm">
+                <source src="../assets/video/reefiki-token-economy.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="token.caption">Public product proof: the distillation flow is already documented in the repository.</figcaption>
+          </figure>
+          <div class="metric-grid token-metrics reveal" aria-label="Rough token reduction ranges">
+            <div class="metric">
+              <span>50-90%</span>
+              <p data-i18n="token.metric1">fewer repeat context reads</p>
+            </div>
+            <div class="metric">
+              <span>70-95%</span>
+              <p data-i18n="token.metric2">for one decision or skill</p>
+            </div>
+            <div class="metric">
+              <span>60-90%</span>
+              <p data-i18n="token.metric3">for a bounded handoff</p>
+            </div>
+            <div class="metric">
+              <span>0-20%</span>
+              <p data-i18n="token.metric4">first pass overhead</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section memory-section" id="memory-types" aria-labelledby="memory-title">
+        <div class="section-inner memory-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="memory.eyebrow">Memory types</p>
+            <h2 id="memory-title" data-i18n="memory.title">Compact markdown cards, not a giant transcript.</h2>
+          </div>
+          <figure class="memory-proof reveal memory-video-card">
+            <div class="reef-video-card memory-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-memory-types-poster.webp"
+                data-reef-video
+                aria-label="Underwater animation showing REEFIKI memory cards"
+              >
+                <source src="../assets/video/reefiki-memory-types.webm" type="video/webm">
+                <source src="../assets/video/reefiki-memory-types.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="memory.caption">Each reusable note becomes a small typed card, not another transcript to reread.</figcaption>
+          </figure>
+          <div class="memory-grid reveal" aria-label="REEFIKI memory types">
+            <article class="memory-card">
+              <span class="file-tag">decisions/</span>
+              <h3 data-i18n="memory.decisionTitle">Decisions</h3>
+              <p data-i18n="memory.decisionBody">What changed, why it changed, and what future agents should respect.</p>
+            </article>
+            <article class="memory-card">
+              <span class="file-tag">skills/</span>
+              <h3 data-i18n="memory.skillTitle">Skills</h3>
+              <p data-i18n="memory.skillBody">Repeatable procedures that turn one solved problem into an agent habit.</p>
+            </article>
+            <article class="memory-card">
+              <span class="file-tag">concepts/</span>
+              <h3 data-i18n="memory.conceptTitle">Concepts</h3>
+              <p data-i18n="memory.conceptBody">Reusable understanding of the project, domain, constraints and vocabulary.</p>
+            </article>
+            <article class="memory-card">
+              <span class="file-tag">synthesis/</span>
+              <h3 data-i18n="memory.synthesisTitle">Synthesis</h3>
+              <p data-i18n="memory.synthesisBody">Session and stage takeaways distilled into a compact handoff trail.</p>
+            </article>
+            <article class="memory-card">
+              <span class="file-tag">sources/</span>
+              <h3 data-i18n="memory.sourceTitle">Sources</h3>
+              <p data-i18n="memory.sourceBody">Where an idea came from, with enough provenance to check it later.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section agents-section" id="agents" aria-labelledby="agents-title">
+        <div class="section-inner agents-layout">
+          <div class="agent-copy reveal">
+            <p class="eyebrow" data-i18n="agents.eyebrow">Agent-agnostic</p>
+            <h2 id="agents-title" data-i18n="agents.title">One project memory, many agents.</h2>
+            <p data-i18n="agents.copy">
+              REEFIKI rules live in markdown contracts, so Codex, Claude Code, Cursor,
+              Windsurf, Cline and other LLM agents can follow the same local trail.
+            </p>
+            <ul class="agent-list" aria-label="Supported agent families">
+              <li>Codex</li>
+              <li>Claude Code</li>
+              <li>Cursor</li>
+              <li>Windsurf</li>
+              <li>Cline</li>
+              <li data-i18n="agents.other">Other LLM agents</li>
+            </ul>
+          </div>
+          <figure class="agents-proof reveal agents-video-card">
+            <div class="reef-video-card agents-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-agent-agnostic-poster.webp"
+                data-reef-video
+                aria-label="Underwater animation showing multiple AI agents connected to one REEFIKI memory"
+              >
+                <source src="../assets/video/reefiki-agent-agnostic.webm" type="video/webm">
+                <source src="../assets/video/reefiki-agent-agnostic.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="agents.caption">Different agents can follow the same local project trail.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section safety-section" id="safety" aria-labelledby="safety-title">
+        <div class="section-inner safety-layout">
+          <div class="section-copy reveal">
+            <p class="eyebrow" data-i18n="safety.eyebrow">Local-first safety</p>
+            <h2 id="safety-title" data-i18n="safety.title">Markdown files, git history, private boundaries.</h2>
+            <p data-i18n="safety.copy">
+              No cloud memory is required. Private wiki projects stay local unless a guarded
+              publish flow explicitly says they are safe to expose.
+            </p>
+          </div>
+          <figure class="safety-proof reveal safety-video-card">
+            <div class="reef-video-card safety-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-safety-poster.webp"
+                data-reef-video
+                aria-label="Underwater animation showing local-first REEFIKI safety boundaries"
+              >
+                <source src="../assets/video/reefiki-safety.webm" type="video/webm">
+                <source src="../assets/video/reefiki-safety.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="safety.caption">Local markdown, git history, and guarded public boundaries stay visible.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section comparison-section" aria-labelledby="comparison-title">
+        <div class="section-inner comparison-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow" data-i18n="comparison.eyebrow">Positioning</p>
+            <h2 id="comparison-title" data-i18n="comparison.title">Not another wiki. Not another cloud memory.</h2>
+            <p data-i18n="comparison.copy">
+              Use the other tools for storage and search. Use REEFIKI when the next agent must inherit a clean, reusable trail.
+            </p>
+          </div>
+          <figure class="comparison-proof reveal comparison-video-card">
+            <div class="reef-video-card comparison-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-comparison-poster.webp"
+                data-reef-video
+                aria-label="Underwater animation comparing REEFIKI with adjacent memory tools"
+              >
+                <source src="../assets/video/reefiki-comparison.webm" type="video/webm">
+                <source src="../assets/video/reefiki-comparison.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="comparison.caption">REEFIKI collects the useful parts into agent-ready project memory.</figcaption>
+          </figure>
+          <div class="comparison-grid reveal" aria-label="REEFIKI comparison with adjacent tools">
+            <article class="comparison-card">
+              <span class="comparison-product" data-i18n="comparison.notionName">Notion / Obsidian</span>
+              <p class="comparison-context" data-i18n="comparison.notionGood">Great for human notes and long-lived documentation.</p>
+              <strong data-i18n="comparison.notionReefiki">REEFIKI keeps agent-ready decisions, skills, indexes and logs.</strong>
+            </article>
+            <article class="comparison-card">
+              <span class="comparison-product" data-i18n="comparison.agentName">Cursor / Claude memory</span>
+              <p class="comparison-context" data-i18n="comparison.agentGood">Convenient memory inside one agent surface.</p>
+              <strong data-i18n="comparison.agentReefiki">REEFIKI is portable across Codex, Claude Code, Cursor and other agents.</strong>
+            </article>
+            <article class="comparison-card">
+              <span class="comparison-product" data-i18n="comparison.ragName">Vector / RAG stores</span>
+              <p class="comparison-context" data-i18n="comparison.ragGood">Useful when you need semantic search over a large pile.</p>
+              <strong data-i18n="comparison.ragReefiki">REEFIKI filters first, then saves only what can be reused.</strong>
+            </article>
+            <article class="comparison-card">
+              <span class="comparison-product" data-i18n="comparison.archiveName">Chat archives</span>
+              <p class="comparison-context" data-i18n="comparison.archiveGood">Good for preserving the whole conversation.</p>
+              <strong data-i18n="comparison.archiveReefiki">REEFIKI turns the useful part into compact project memory.</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-title">
+        <div class="final-inner reveal">
+          <div class="final-copy">
+            <p class="eyebrow" data-i18n="final.eyebrow">Try REEFIKI locally</p>
+            <h2 id="final-title" data-i18n="final.title">Give the next agent a better starting point.</h2>
+          </div>
+          <figure class="final-proof final-video-card">
+            <div class="reef-video-card final-video-frame">
+              <div class="reef-aura" aria-hidden="true"></div>
+              <video
+                class="reef-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="../assets/video/reefiki-final-cta-poster.webp"
+                data-reef-video
+                aria-label="Underwater animation inviting the user to start with REEFIKI"
+              >
+                <source src="../assets/video/reefiki-final-cta.webm" type="video/webm">
+                <source src="../assets/video/reefiki-final-cta.mp4" type="video/mp4">
+              </video>
+              <div class="reef-video-scrim" aria-hidden="true"></div>
+            </div>
+            <figcaption data-i18n="final.caption">The next agent starts with a prepared project memory.</figcaption>
+          </figure>
+          <div class="final-actions">
+            <a class="button button-primary" href="../QUICKSTART.md#english" data-href-en="../QUICKSTART.md#english" data-href-ru="../QUICKSTART.md#русский" data-i18n="final.quick">Quick Start</a>
+            <a class="button button-secondary" href="https://github.com/kisslex2013-alt/reefiki">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js?v=theme-readability-20260615" defer></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - "codex/**"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.11"
+
+      - name: Install test runner
+        run: python -m pip install --upgrade pip build pytest
+
+      - name: Validate current green wiki scope
+        shell: pwsh
+        run: |
+          $files = @(git ls-files -- "projects/_template/wiki" "projects/reefiki-demo/wiki")
+          if ($files.Count -gt 0) {
+            python scripts/validate_frontmatter.py @files
+          }
+
+      - name: Run tests
+        run: python -m pytest
+
+      - name: Build package artifacts
+        run: python -m build
+
+      - name: Smoke installed wheel first run
+        shell: pwsh
+        run: |
+          $tmp = Join-Path ([System.IO.Path]::GetTempPath()) ("reefiki-wheel-smoke-" + [System.Guid]::NewGuid().ToString("N"))
+          python -m venv $tmp
+          $scriptDir = if ($IsWindows) { "Scripts" } else { "bin" }
+          $pythonName = if ($IsWindows) { "python.exe" } else { "python" }
+          $venvBin = Join-Path $tmp $scriptDir
+          $venvPython = Join-Path $venvBin $pythonName
+          & $venvPython -m pip install --upgrade pip
+          $wheel = (Get-ChildItem -Path dist -Filter "reefiki-*.whl" | Select-Object -First 1).FullName
+          if (-not $wheel) {
+            throw "No REEFIKI wheel artifact found in dist/."
+          }
+          & $venvPython -m pip install $wheel
+          $env:PATH = "$venvBin$([System.IO.Path]::PathSeparator)$env:PATH"
+          reefiki --help
+          $workspace = Join-Path $tmp "reefiki-workspace"
+          $project = Join-Path $workspace "projects/first-run"
+          $init = reefiki init --workspace $workspace --project-name first-run --format json | ConvertFrom-Json
+          if ($init.outcome -ne "pass") {
+            throw "reefiki init failed: $($init | ConvertTo-Json -Compress)"
+          }
+          $doctor = reefiki --project $project doctor --format json | ConvertFrom-Json
+          if ($doctor.outcome -ne "pass") {
+            throw "reefiki doctor failed: $($doctor | ConvertTo-Json -Compress)"
+          }
+
+      - name: Run memory golden baseline
+        run: python scripts/reefiki.py memory golden --project reefiki-demo --format json

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="460" viewBox="0 0 1100 460" role="img" aria-labelledby="title desc">
+  <title id="title">REEFIKI 连接架构</title>
+  <desc id="desc">代码项目通过 _wiki junction 连接到 REEFIKI。Obsidian 将 wiki 作为图谱打开。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101418"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity=".25"/>
+    </filter>
+    <marker id="arrg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10z" fill="#89b4fa"/>
+    </marker>
+    <marker id="arrp" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10z" fill="#cba6f7"/>
+    </marker>
+    <marker id="arrt" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10z" fill="#94e2d5"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="460" rx="16" fill="url(#bg)"/>
+  <g stroke="#585b70" stroke-opacity=".06" stroke-width="1">
+    <path d="M0 80h1100M0 160h1100M0 240h1100M0 320h1100M0 400h1100"/>
+    <path d="M138 0v460M275 0v460M413 0v460M550 0v460M688 0v460M825 0v460M963 0v460"/>
+  </g>
+  <text x="60" y="56" fill="#cdd6f4" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">连接方式</text>
+  <text x="60" y="84" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="15">_wiki/ junction 将代码项目连接到 REEFIKI。Obsidian 将 wiki 作为图谱打开。</text>
+  <g filter="url(#shadow)">
+    <rect x="60" y="120" width="240" height="230" rx="16" fill="#1e1e2e" stroke="#313244" stroke-width="1.5"/>
+    <text x="180" y="155" text-anchor="middle" fill="#cdd6f4" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">你的项目</text>
+    <text x="88" y="188" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="13">src/</text>
+    <text x="88" y="210" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="13">docs/</text>
+    <text x="88" y="232" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="13">...</text>
+    <text x="88" y="264" fill="#89b4fa" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600">_wiki/  ──────────────▶</text>
+    <text x="88" y="288" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">.reefiki</text>
+    <text x="88" y="310" fill="#cba6f7" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600">AGENTS.md  ───────────▶</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="380" y="100" width="360" height="280" rx="16" fill="#1e1e2e" stroke="#f5c2e7" stroke-width="1.5" stroke-opacity=".5"/>
+    <text x="560" y="135" text-anchor="middle" fill="#f5c2e7" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">REEFIKI/</text>
+    <text x="408" y="162" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">AGENTS.md</text>
+    <text x="408" y="183" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">projects/</text>
+    <text x="424" y="204" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">├── _template/</text>
+    <text x="424" y="223" fill="#a6e3a1" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">└── myapp/</text>
+    <text x="440" y="242" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">├── wiki/</text>
+    <text x="456" y="261" fill="#89b4fa" font-family="Segoe UI, Arial, sans-serif" font-size="11">│  ├── decisions/</text>
+    <text x="456" y="278" fill="#cba6f7" font-family="Segoe UI, Arial, sans-serif" font-size="11">│  ├── concepts/</text>
+    <text x="456" y="295" fill="#f5c2e7" font-family="Segoe UI, Arial, sans-serif" font-size="11">│  ├── skills/</text>
+    <text x="440" y="315" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">├── inbox/</text>
+    <text x="440" y="334" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">└── AGENTS.md</text>
+  </g>
+  <path d="M300 264 L375 235" fill="none" stroke="#89b4fa" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arrg)"/>
+  <path d="M300 310 L375 310" fill="none" stroke="#cba6f7" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arrp)"/>
+  <g filter="url(#shadow)">
+    <rect x="820" y="160" width="220" height="150" rx="16" fill="#1e1e2e" stroke="#94e2d5" stroke-width="1.5" stroke-opacity=".5"/>
+    <text x="930" y="196" text-anchor="middle" fill="#94e2d5" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="700">Obsidian</text>
+    <text x="848" y="222" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">知识图谱</text>
+    <text x="848" y="244" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">节点 = 页面</text>
+    <text x="848" y="264" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">连接 = [[links]]</text>
+    <text x="848" y="290" fill="#585b70" font-family="Segoe UI, Arial, sans-serif" font-size="11">只读视图</text>
+  </g>
+  <path d="M740 240 L815 240" fill="none" stroke="#94e2d5" stroke-width="2" marker-end="url(#arrt)"/>
+  <text x="310" y="252" fill="#89b4fa" font-family="Segoe UI, Arial, sans-serif" font-size="11">junction</text>
+  <text x="758" y="232" fill="#94e2d5" font-family="Segoe UI, Arial, sans-serif" font-size="11">打开 vault</text>
+</svg>

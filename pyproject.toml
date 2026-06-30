@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reefiki"
+version = "0.1.1"
+description = "Multi-project markdown wiki and memory control plane for LLM agents."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [
+  { name = "REEFIKI contributors" }
+]
+keywords = ["agents", "local-first", "markdown", "memory", "wiki"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Natural Language :: English",
+  "Natural Language :: Russian",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Documentation",
+  "Topic :: Software Development :: Documentation",
+  "Topic :: Text Processing :: Markup :: Markdown",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/kisslex2013-alt/Reefiki"
+Repository = "https://github.com/kisslex2013-alt/Reefiki"
+Issues = "https://github.com/kisslex2013-alt/Reefiki/issues"
+
+[project.optional-dependencies]
+dev = [
+  "build>=1.2",
+  "pre-commit>=3.7",
+  "pytest>=8.0"
+]
+
+[project.scripts]
+reefiki = "scripts.reefiki:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--strict-markers"]
+markers = [
+  "agent_flow: user-facing slash-command and agent-flow conformance tests",
+  "benchmark: retrieval or performance comparison tests",
+  "contract: cross-module behavior contracts and compatibility guarantees",
+  "dashboard: Ops Dashboard payload, static asset and browser-adjacent tests",
+  "governance: publish, staging, security and wiki governance gates",
+  "integration: filesystem, git, subprocess, CLI or multi-step workflow tests",
+  "memory: memory control plane, provider, golden, lookup, pack and promote tests",
+  "slow: higher-cost tests that are reasonable to skip in a tight inner loop",
+]
+
+[tool.setuptools.packages.find]
+include = ["scripts*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"scripts.reefiki_core.ops_dashboard" = [
+  "static/*.css",
+  "static/*.html",
+  "static/*.js",
+  "static/*.json",
+  "static_next/*.css",
+  "static_next/*.html",
+  "static_next/*.js",
+  "static_next/*.json",
+]

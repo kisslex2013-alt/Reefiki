@@ -1,0 +1,18 @@
+version: 1
+project: reefiki-demo
+queries:
+  - id: lookup-public-first-run-flow
+    kind: lookup
+    query: public first run install test demo project clone
+    layer: reefiki
+    expect_ids: [public-first-run-flow]
+  - id: lookup-public-private-snapshot-boundary
+    kind: lookup
+    query: public private snapshot boundary filtered private projects
+    layer: reefiki
+    expect_ids: [public-private-snapshot-boundary]
+  - id: lookup-public-release-verification
+    kind: lookup
+    query: public release verification pytest doctor review queues golden
+    layer: reefiki
+    expect_ids: [public-release-verification]

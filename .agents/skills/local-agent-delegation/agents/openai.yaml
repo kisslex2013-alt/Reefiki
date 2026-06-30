@@ -1,0 +1,4 @@
+interface:
+  display_name: "Local Agent Delegation"
+  short_description: "Delegate prompts to local agents"
+  default_prompt: "Delegate this read-only review prompt to Claude, Mimo, Gemini, and Hermes VPS, then compare their results."

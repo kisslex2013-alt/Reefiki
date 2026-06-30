@@ -1,0 +1,11 @@
+# REEFIKI — Cline / Roo Cline
+
+Это vendor-neutral проект мульти-проектной персональной distillation-вики.
+
+**Главный контракт:** `AGENTS.md` в корне репо. Читай его первым.
+
+**Внутри проекта** (`projects/<name>/`): читай `projects/<name>/AGENTS.md` — там полный контракт операций.
+
+**Спецификации операций:** `projects/<name>/.claude/commands/<op>.md` (имя папки `.claude/` историческое, содержимое vendor-neutral markdown).
+
+Доступные операции: `save`, `process`, `query`, `harvest`, `status`, `lint`, `resolve`, `reindex`, `help`, `review-queues`, `promote-dry-run`.

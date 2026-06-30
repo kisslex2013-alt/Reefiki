@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="480" viewBox="0 0 1100 480" role="img" aria-labelledby="title desc">
+  <title id="title">REEFIKI memory control plane</title>
+  <desc id="desc">Three memory layers connected by a governance control plane: memoir, REEFIKI wiki, graphify.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101418"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000" flood-opacity=".25"/>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10z" fill="#585b70"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="480" rx="16" fill="url(#bg)"/>
+  <g stroke="#585b70" stroke-opacity=".06" stroke-width="1">
+    <path d="M0 80h1100M0 160h1100M0 240h1100M0 320h1100M0 400h1100"/>
+    <path d="M138 0v480M275 0v480M413 0v480M550 0v480M688 0v480M825 0v480M963 0v480"/>
+  </g>
+  <text x="60" y="58" fill="#cdd6f4" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Memory Control Plane</text>
+  <text x="60" y="88" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="15">Not a new storage layer — a router and safety layer over existing memory</text>
+  <g filter="url(#shadow)">
+    <rect x="370" y="130" width="360" height="210" rx="16" fill="#1e1e2e" stroke="#f5c2e7" stroke-width="1.5" stroke-opacity=".6"/>
+    <text x="550" y="172" text-anchor="middle" fill="#f5c2e7" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700">Control Plane</text>
+    <text x="550" y="200" text-anchor="middle" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">route · preflight · lookup</text>
+    <text x="550" y="220" text-anchor="middle" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">promote draft · golden · diff</text>
+    <text x="550" y="240" text-anchor="middle" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">pack --strict · review queues</text>
+    <rect x="430" y="292" width="240" height="32" rx="16" fill="#313244"/>
+    <text x="550" y="313" text-anchor="middle" fill="#f5c2e7" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600">governance first</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="60" y="168" width="240" height="130" rx="16" fill="#1e1e2e" stroke="#89b4fa" stroke-width="1.5" stroke-opacity=".5"/>
+    <text x="180" y="208" text-anchor="middle" fill="#89b4fa" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">memoir</text>
+    <text x="180" y="234" text-anchor="middle" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">short working memory</text>
+    <text x="180" y="254" text-anchor="middle" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">preferences · session facts</text>
+    <text x="180" y="283" text-anchor="middle" fill="#585b70" font-family="Segoe UI, Arial, sans-serif" font-size="11">~memoir</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="370" y="380" width="360" height="78" rx="16" fill="#1e1e2e" stroke="#a6e3a1" stroke-width="1.5" stroke-opacity=".5"/>
+    <text x="550" y="414" text-anchor="middle" fill="#a6e3a1" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">REEFIKI wiki</text>
+    <text x="550" y="438" text-anchor="middle" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">decisions · skills · synthesis · markdown truth</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="800" y="168" width="240" height="130" rx="16" fill="#1e1e2e" stroke="#cba6f7" stroke-width="1.5" stroke-opacity=".5"/>
+    <text x="920" y="208" text-anchor="middle" fill="#cba6f7" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">graphify</text>
+    <text x="920" y="234" text-anchor="middle" fill="#a6adc8" font-family="Segoe UI, Arial, sans-serif" font-size="13">structure map</text>
+    <text x="920" y="254" text-anchor="middle" fill="#6c7086" font-family="Segoe UI, Arial, sans-serif" font-size="12">files · symbols · relations</text>
+    <text x="920" y="283" text-anchor="middle" fill="#585b70" font-family="Segoe UI, Arial, sans-serif" font-size="11">~graphify</text>
+  </g>
+  <path d="M300 233 C335 233 355 233 370 233" fill="none" stroke="#585b70" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M730 233 C745 233 765 233 800 233" fill="none" stroke="#585b70" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M550 340 L550 380" fill="none" stroke="#585b70" stroke-width="2" marker-end="url(#arr)"/>
+</svg>
