@@ -1,0 +1,15 @@
+# REEFIKI Portable Skills Fragment
+
+Use the markdown workflows in `skills/base/*/SKILL.md` when they match the task.
+
+Core rules:
+
+- Before non-trivial repo edits, use `skills/base/safe-task-worktree-bootstrap/SKILL.md`.
+- For config, runtime, version, path, tool or access questions, use `skills/base/source-of-truth-diagnostics/SKILL.md`.
+- Before commit, publish, release or harvest, use `skills/base/staged-scope-and-publish-guard/SKILL.md`.
+- Before work in a project with REEFIKI history, use `skills/base/reefiki-experience-monitor/SKILL.md`.
+- When a result should become durable knowledge, use `skills/base/durable-harvest-closeout/SKILL.md`.
+- Before declaring completion, use `skills/base/verification-before-completion/SKILL.md`.
+- After browser-visible changes, use `skills/base/browser-runtime-smoke-gate/SKILL.md`.
+
+These skills are plain markdown. Runtime-specific hooks or commands are optional adapters and must not change the workflow meaning.

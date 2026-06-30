@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>REEFIKI Workspace Ops Board Next</title>
+  <link rel="stylesheet" href="/static/theme.css">
+</head>
+<body>
+  <div class="app-shell" data-ui="ops-board-next">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">R</div>
+        <div>
+          <div class="brand-title">REEFIKI <span>ops</span></div>
+          <div class="brand-subtitle" data-i18n="top.tagline">Workspace control board</div>
+        </div>
+      </div>
+
+      <div class="verdict-card" id="verdict-card" tabindex="0">
+        <span class="dot" id="verdict-dot"></span>
+        <div>
+          <div class="verdict-title" id="verdict-title">loading</div>
+          <div class="verdict-note" id="verdict-note" data-i18n="top.loading">Loading snapshot</div>
+        </div>
+      </div>
+
+      <div class="top-meta">
+        <div class="repo-chip">
+          <span data-i18n="top.branch">branch</span>
+          <code id="meta-branch">not available</code>
+          <code id="meta-head">--</code>
+        </div>
+        <div class="repo-chip">
+          <span data-i18n="top.sync">sync</span>
+          <code id="meta-sync">+0 -0</code>
+        </div>
+        <div class="repo-chip">
+          <span data-i18n="top.age">age</span>
+          <code id="meta-age">--</code>
+        </div>
+      </div>
+
+      <div class="top-controls">
+        <button class="mode-button" id="lang" type="button" aria-label="Language"></button>
+        <button class="mode-button" id="theme" type="button" aria-label="Theme"></button>
+        <button class="mode-button" id="interval" type="button" aria-label="Interval"></button>
+        <button class="icon-button text-button" id="refresh" type="button" data-i18n="ui.refresh">Refresh</button>
+      </div>
+    </header>
+
+    <section class="safety-strip" aria-label="Safety gates">
+      <article class="safety-gate" id="gate-continue" tabindex="0">
+        <span class="gate-icon">C</span>
+        <div>
+          <strong data-i18n="gate.continue">continue</strong>
+          <span id="gate-continue-note">snapshot required</span>
+        </div>
+      </article>
+      <article class="safety-gate" id="gate-publish" tabindex="0">
+        <span class="gate-icon">P</span>
+        <div>
+          <strong data-i18n="gate.publish">publish</strong>
+          <span id="gate-publish-note">copy-only gate</span>
+        </div>
+      </article>
+      <article class="safety-gate" id="gate-cleanup" tabindex="0">
+        <span class="gate-icon">X</span>
+        <div>
+          <strong data-i18n="gate.cleanup">cleanup</strong>
+          <span id="gate-cleanup-note">evidence required</span>
+        </div>
+      </article>
+      <div class="safety-status">
+        <span data-i18n="top.generated">generated</span>
+        <code id="generated-at">not available</code>
+      </div>
+    </section>
+
+    <div class="workspace-layout">
+      <nav class="left-nav" aria-label="Dashboard sections">
+        <button class="nav-item is-active" type="button" data-section="overview">
+          <span class="nav-icon">01</span><span data-i18n="nav.overview">Overview</span><strong id="nav-count-overview"></strong>
+        </button>
+        <button class="nav-item" type="button" data-section="projects">
+          <span class="nav-icon">02</span><span data-i18n="nav.projects">Projects</span><strong id="nav-count-projects"></strong>
+        </button>
+        <button class="nav-item" type="button" data-section="memory">
+          <span class="nav-icon">03</span><span data-i18n="nav.memory">Memory</span><strong id="nav-count-memory"></strong>
+        </button>
+        <button class="nav-item" type="button" data-section="worktrees">
+          <span class="nav-icon">04</span><span data-i18n="nav.worktrees">Worktrees</span><strong id="nav-count-worktrees"></strong>
+        </button>
+        <button class="nav-item" type="button" data-section="publish">
+          <span class="nav-icon">05</span><span data-i18n="nav.publish">Publish</span><strong id="nav-count-publish"></strong>
+        </button>
+        <button class="nav-item" type="button" data-section="review">
+          <span class="nav-icon">06</span><span data-i18n="nav.review">Review</span><strong id="nav-count-review"></strong>
+        </button>
+        <button class="nav-item" type="button" data-section="sprint">
+          <span class="nav-icon">07</span><span data-i18n="nav.sprint">Sprint</span><strong id="nav-count-sprint"></strong>
+        </button>
+        <button class="nav-item" type="button" data-section="logs">
+          <span class="nav-icon">08</span><span data-i18n="nav.logs">Logs</span><strong id="nav-count-logs"></strong>
+        </button>
+      </nav>
+
+      <main class="main-stage" aria-live="polite">
+        <section class="section is-active" id="section-overview" data-section-panel="overview">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.operator">operator view</p>
+              <h1 data-i18n="overview.title">Workspace overview</h1>
+            </div>
+            <p id="overview-summary" class="section-summary">Loading workspace snapshot.</p>
+          </div>
+          <div class="kpi-grid" id="kpi-grid"></div>
+          <div class="command-center" id="command-center"></div>
+          <div class="panel-grid panel-grid-two">
+            <article class="panel">
+              <div class="panel-head">
+                <h2 data-i18n="overview.current">Current work</h2>
+                <span class="muted" id="current-work-count"></span>
+              </div>
+              <div class="card-list" id="current-work-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head">
+                <h2 data-i18n="overview.attention">Attention</h2>
+                <span class="muted" id="attention-count"></span>
+              </div>
+              <div class="card-list" id="attention-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="section-projects" data-section-panel="projects" hidden>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.snapshot">snapshot</p>
+              <h1 data-i18n="projects.title">Projects</h1>
+            </div>
+            <p class="section-summary" data-i18n="projects.note">Real workspace data from /api/snapshot.</p>
+          </div>
+          <div class="query-strip">
+            <label class="search-field">
+              <span data-i18n="projects.search">Search projects</span>
+              <input id="projects-search" type="search" autocomplete="off" data-i18n-placeholder="projects.searchPlaceholder" placeholder="name, branch, stack, path">
+            </label>
+          </div>
+          <div class="view-strip" id="projects-views" role="toolbar" aria-label="Project view presets"></div>
+          <div class="filter-strip" id="projects-filters" role="toolbar" aria-label="Project filters"></div>
+          <div class="table-wrap">
+            <table class="ops-table">
+              <thead>
+                <tr>
+                  <th data-i18n="table.name">Name</th>
+                  <th data-i18n="table.branch">Branch</th>
+                  <th data-i18n="table.state">State</th>
+                  <th data-i18n="table.reefiki">REEFIKI</th>
+                  <th data-i18n="table.stack">Stack</th>
+                  <th data-i18n="table.last">Last</th>
+                  <th data-i18n="table.gates">Gates</th>
+                </tr>
+              </thead>
+              <tbody id="projects-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="section-memory" data-section-panel="memory" hidden>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.layers">layers</p>
+              <h1 data-i18n="memory.title">Memory</h1>
+            </div>
+            <p class="section-summary" data-i18n="memory.note">Shows only memory signals present in the current dashboard snapshot.</p>
+          </div>
+          <div class="memory-notice" id="memory-notice" hidden></div>
+          <div class="panel-grid panel-grid-three" id="memory-panels"></div>
+          <div class="memory-topology" id="memory-topology"></div>
+          <div class="memory-insights" id="memory-insights"></div>
+        </section>
+
+        <section class="section" id="section-worktrees" data-section-panel="worktrees" hidden>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.git">git</p>
+              <h1 data-i18n="worktrees.title">Worktrees</h1>
+            </div>
+            <p class="section-summary" data-i18n="worktrees.note">Read-only branch/worktree signals derived from project git status.</p>
+          </div>
+          <div class="query-strip">
+            <label class="search-field">
+              <span data-i18n="worktrees.search">Search worktrees</span>
+              <input id="worktrees-search" type="search" autocomplete="off" data-i18n-placeholder="worktrees.searchPlaceholder" placeholder="branch, path, recommendation">
+            </label>
+          </div>
+          <div class="view-strip" id="worktrees-views" role="toolbar" aria-label="Worktree view presets"></div>
+          <div class="filter-strip" id="worktrees-filters" role="toolbar" aria-label="Worktree filters"></div>
+          <div class="table-wrap">
+            <table class="ops-table">
+              <thead>
+                <tr>
+                  <th data-i18n="table.name">Name</th>
+                  <th data-i18n="table.worktrees">Worktrees</th>
+                  <th data-i18n="table.branch">Branch</th>
+                  <th data-i18n="table.dirty">Dirty</th>
+                  <th data-i18n="table.sync">Ahead/behind</th>
+                  <th data-i18n="table.recommendation">Recommendation</th>
+                </tr>
+              </thead>
+              <tbody id="worktrees-table"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section" id="section-publish" data-section-panel="publish" hidden>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.guard">guarded</p>
+              <h1 data-i18n="publish.title">Publish</h1>
+            </div>
+            <p class="section-summary" data-i18n="publish.note">This board never publishes. It only shows copy-only guarded next actions.</p>
+          </div>
+          <div class="command-center command-center-compact" id="publish-summary"></div>
+          <div class="signal-grid" id="publish-classification"></div>
+          <div class="panel-grid panel-grid-two">
+            <article class="panel">
+              <div class="panel-head"><h2 data-i18n="publish.gates">Gate matrix</h2></div>
+              <div class="card-list" id="publish-gates"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2 data-i18n="publish.commands">Copy-only commands</h2></div>
+              <div class="card-list" id="publish-commands"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="section-review" data-section-panel="review" hidden>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.queue">queue</p>
+              <h1 data-i18n="review.title">Review</h1>
+            </div>
+            <p class="section-summary" data-i18n="review.note">Bounded review queue surface, not a broad graph query.</p>
+          </div>
+          <div class="signal-grid" id="review-hygiene"></div>
+          <div class="panel-grid panel-grid-two">
+            <article class="panel">
+              <div class="panel-head"><h2 data-i18n="review.queue">Review queue</h2></div>
+              <div class="card-list" id="review-list"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2 data-i18n="review.health">Health</h2></div>
+              <div class="card-list" id="health-list"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="section-sprint" data-section-panel="sprint" hidden>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.plan">plan</p>
+              <h1 data-i18n="sprint.title">Sprint</h1>
+            </div>
+            <p class="section-summary" id="sprint-summary">not available in current snapshot</p>
+          </div>
+          <div class="sprint-burndown" id="sprint-burndown"></div>
+          <div class="panel-grid panel-grid-two">
+            <article class="panel">
+              <div class="panel-head"><h2 data-i18n="sprint.active">Active tasks</h2></div>
+              <div class="card-list" id="active-tasks"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head"><h2 data-i18n="sprint.next">Next tasks</h2></div>
+              <div class="card-list" id="next-tasks"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="section-logs" data-section-panel="logs" hidden>
+          <div class="section-head">
+            <div>
+              <p class="eyebrow" data-i18n="section.live">live</p>
+              <h1 data-i18n="logs.title">Logs</h1>
+            </div>
+            <p class="section-summary" data-i18n="logs.note">Allowlisted log tail only; secret-like values are redacted by the API.</p>
+          </div>
+          <div class="logs-toolbar">
+            <label class="field">
+              <span data-i18n="logs.source">Source</span>
+              <select id="log-source"></select>
+            </label>
+            <label class="field search-field logs-search-field">
+              <span data-i18n="logs.search">Search logs</span>
+              <input id="logs-search" type="search" autocomplete="off" data-i18n-placeholder="logs.searchPlaceholder" placeholder="level, command, message">
+            </label>
+            <button class="text-button" id="logs-refresh" type="button" data-i18n="ui.refresh">Refresh</button>
+            <span class="status-pill" id="log-state">not available</span>
+          </div>
+          <div class="view-strip" id="logs-views" role="toolbar" aria-label="Log view presets"></div>
+          <div class="filter-strip logs-filter-strip" id="logs-filters" role="toolbar" aria-label="Log filters"></div>
+          <div class="log-view" id="log-view"></div>
+        </section>
+      </main>
+
+      <aside class="right-rail" id="right-rail" aria-live="polite" aria-busy="false">
+        <div class="rail-head">
+          <span class="status-pill" id="rail-status">info</span>
+          <div>
+            <h2 id="rail-title" data-i18n="rail.title">Selected item</h2>
+            <p id="rail-subtitle" data-i18n="rail.empty">Choose a row or card to inspect.</p>
+          </div>
+        </div>
+        <dl class="rail-fields" id="rail-fields"></dl>
+        <div class="rail-actions">
+          <h3 data-i18n="rail.actions">Next actions</h3>
+          <div id="rail-actions-list"></div>
+        </div>
+        <p class="rail-foot" data-i18n="rail.copyOnly">All actions are copy-only. The dashboard never writes, publishes, pulls, fetches or cleans up.</p>
+      </aside>
+    </div>
+  </div>
+
+  <template id="tpl-kpi">
+    <article class="kpi-card">
+      <span data-field="label"></span>
+      <strong data-field="value"></strong>
+      <em data-field="note"></em>
+    </article>
+  </template>
+
+  <template id="tpl-card">
+    <article class="info-card" tabindex="0">
+      <div class="info-card-head">
+        <strong data-field="title"></strong>
+        <span class="status-pill" data-field="status"></span>
+      </div>
+      <p data-field="body"></p>
+      <code data-field="meta"></code>
+    </article>
+  </template>
+
+  <template id="tpl-row">
+    <tr tabindex="0">
+      <td data-field="name"></td>
+      <td data-field="branch"></td>
+      <td data-field="state"></td>
+      <td data-field="reefiki"></td>
+      <td data-field="stack"></td>
+      <td data-field="last"></td>
+      <td data-field="gates"></td>
+    </tr>
+  </template>
+
+  <template id="tpl-action">
+    <button class="rail-action" type="button">
+      <span class="rail-action-top">
+        <strong data-field="label"></strong>
+        <span class="action-help" data-field="help" aria-hidden="true">i</span>
+      </span>
+      <span data-field="detail" aria-live="polite"></span>
+      <code data-field="command"></code>
+    </button>
+  </template>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

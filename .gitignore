@@ -1,0 +1,66 @@
+# Obsidian
+.obsidian/workspace*
+.obsidian/cache
+.obsidian/plugins/**/main.js
+.obsidian/plugins/**/styles.css
+.trash/
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editors / IDE caches
+.vscode/
+.idea/
+*.swp
+*~
+
+# Secrets (safety net)
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+id_rsa*
+
+# Build / dependencies (shouldn't appear, but just in case)
+node_modules/
+__pycache__/
+dist/
+build/
+target/
+.next/
+.cache/
+
+# Large files
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.iso
+*.bin
+
+# Temp / system
+*.tmp
+*.log
+*.bak
+
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# pre-commit
+.pre-commit-cache/
+
+# Local agent/tool state
+.claude/settings.local.json
+.claude/worktrees/
+.serena/
+.octogent
+.reefiki/
+/plans/*
+!/plans/leadops/
+/plans/leadops/*
+!/plans/leadops/worktree-ledger.json

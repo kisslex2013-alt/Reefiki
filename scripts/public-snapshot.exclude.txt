@@ -1,0 +1,30 @@
+# Curated public snapshot exclusions.
+# These files stay in the private source repo, but are not product/install/use
+# surface for the public GitHub snapshot.
+
+docs/Audit_*/**
+docs/*QA*
+docs/*REVIEW*
+docs/*UX*
+docs/CURRENT_STATE_QA_*
+docs/P2_TRIGGER_GATE_REVIEW_*
+docs/OPS_BOARD_NEXT.md
+docs/OPS_DASHBOARD_*
+docs/link-confidence/**
+docs/publish/*.json
+docs/retrieval/**
+docs/COORDINATION_OWNER_REGISTRY.md
+docs/ODYSSEUS_DOGFOOD.md
+docs/CODEX_PLUGIN_PACKAGING_EVALUATION.md
+docs/GTM_READINESS_PACK.md
+
+ROADMAP.md
+TASKS.md
+plans/**
+.obsidian/**
+.codex/hooks.json
+.github/workflows/inbox-capture.yml
+**/__pycache__/**
+*.pyc
+
+scripts/mobile-capture/**

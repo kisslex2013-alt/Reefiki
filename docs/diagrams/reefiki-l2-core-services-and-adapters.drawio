@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="drawio" version="26.0.0">
+  <diagram name="L2-CoreServices-Adapters" id="reefiki-l2">
+    <mxGraphModel dx="2000" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- TITLE -->
+        <mxCell id="100" value="REEFIKI — Core Services and IDE Adapters (L2)" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2A44;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1620" height="40" as="geometry" />
+        </mxCell>
+        <!-- CLI ENTRY (left column) -->
+        <mxCell id="200" value="CLI Entry" style="swimlane;startSize=30;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=13;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="280" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="201" value="reefiki.py&#xa;(argparse root)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;fontStyle=1;" vertex="1" parent="200">
+          <mxGeometry x="20" y="40" width="240" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="210" value="onboarding&#xa;(wizard)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="110" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="211" value="memory route / lookup / pack /&#xa;reflect / diff / status /&#xa;explain / golden / preflight" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=10;" vertex="1" parent="200">
+          <mxGeometry x="20" y="160" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="212" value="ops-dashboard demo / serve" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="230" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="213" value="project status / health /&#xa;lint / doctor / reindex" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="280" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="214" value="retrieval benchmark / preflight" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="350" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="215" value="save / process / query /&#xa;harvest / resolve" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="400" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="216" value="publish snapshot /&#xa;classification / task" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="470" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="217" value="cross-project query" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="540" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="218" value="guard-staged / cleanup-worktree&#xa;/ harvest-commit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="590" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="219" value="review-queues /&#xa;obligations-extract /&#xa;orchestration-check" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="660" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="220" value="agent-readiness /&#xa;adapter-smoke / adapters" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="730" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="221" value="plans / graphify&#xa;/ promote" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="200">
+          <mxGeometry x="20" y="800" width="240" height="60" as="geometry" />
+        </mxCell>
+        <!-- REEFIKI_CORE MODULES (middle column) -->
+        <mxCell id="300" value="reefiki_core/*  (50+ submodules)" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="900" height="980" as="geometry" />
+        </mxCell>
+        <!-- Memory group -->
+        <mxCell id="310" value="Memory (memory_*.py)" style="swimlane;startSize=24;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=1;rounded=1;" vertex="1" parent="300">
+          <mxGeometry x="20" y="40" width="420" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="311" value="memory_route" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="10" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="312" value="memory_lookup" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="150" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="313" value="memory_pack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="290" y="30" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="314" value="memory_reflect" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="10" y="70" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="315" value="memory_diff" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="150" y="70" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="316" value="memory_status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="290" y="70" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="317" value="memory_explain" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="10" y="110" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="318" value="memory_golden" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="150" y="110" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="319" value="memory_preflight" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="290" y="110" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="31a" value="memoir_io" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="10" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="31b" value="memory_cli" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="150" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="31c" value="memoir_io.run_memoir()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=10;" vertex="1" parent="310">
+          <mxGeometry x="290" y="150" width="120" height="30" as="geometry" />
+        </mxCell>
+        <!-- Retrieval / Health / Search group -->
+        <mxCell id="320" value="Retrieval + Health" style="swimlane;startSize=24;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;rounded=1;" vertex="1" parent="300">
+          <mxGeometry x="450" y="40" width="430" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="321" value="index_search&#xa;(FTS5 lookup)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="10" y="30" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="322" value="health&#xa;(6-cat lint)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="150" y="30" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="323" value="doctor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="290" y="30" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="324" value="link_confidence" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="10" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="325" value="retrieval_benchmark" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="150" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="326" value="retrieval_preflight" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="290" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="327" value="duplicates" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="10" y="130" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="328" value="markdown / frontmatter" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="150" y="130" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="329" value="obligations_extract" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="290" y="130" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="32a" value="cross_project" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="10" y="170" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="32b" value="process_utils" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="150" y="170" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="32c" value="review_queues" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;" vertex="1" parent="320">
+          <mxGeometry x="290" y="170" width="130" height="30" as="geometry" />
+        </mxCell>
+        <!-- Project / Save / Plans group -->
+        <mxCell id="330" value="Project + Save + Plans" style="swimlane;startSize=24;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;rounded=1;" vertex="1" parent="300">
+          <mxGeometry x="20" y="280" width="420" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="331" value="project_commands" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="10" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="332" value="project_paths" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="150" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="333" value="save" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="290" y="30" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="334" value="save_paths" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="10" y="70" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="335" value="status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="150" y="70" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="336" value="repo_paths" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="290" y="70" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="337" value="plans (create/check/timeline)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="10" y="110" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="338" value="onboarding (wizard)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="150" y="110" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="339" value="code_context / graphify" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="290" y="110" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="33a" value="cleanup_worktree" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="10" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="33b" value="guard_staged" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="150" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="33c" value="harvest_commit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="290" y="150" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="33d" value="promotion (dry-run)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="10" y="190" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="33e" value="capture_evidence" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="150" y="190" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="33f" value="orchestration_check" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="330">
+          <mxGeometry x="290" y="190" width="120" height="30" as="geometry" />
+        </mxCell>
+        <!-- Publishing / Privacy / Dashboard group -->
+        <mxCell id="340" value="Publishing + Dashboard + Privacy" style="swimlane;startSize=24;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;rounded=1;" vertex="1" parent="300">
+          <mxGeometry x="450" y="280" width="430" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="341" value="publish_task" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="10" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="342" value="publish_classification" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="150" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="343" value="public_snapshot" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="290" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="344" value="ops_dashboard (HTTP)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="10" y="70" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="345" value="privacy (PII redact)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="150" y="70" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="346" value="secret_scan" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="290" y="70" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="347" value="visibility_audit" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="10" y="110" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="348" value="adapters / adapter_smoke" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="150" y="110" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="349" value="verify_intent" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="290" y="110" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="34a" value="storage" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="10" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="34b" value="wiki_rows" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="150" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="34c" value="tool_trigger" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=10;" vertex="1" parent="340">
+          <mxGeometry x="290" y="150" width="130" height="30" as="geometry" />
+        </mxCell>
+        <!-- Utilities group -->
+        <mxCell id="350" value="Utilities + Git + Files" style="swimlane;startSize=24;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;fontStyle=1;rounded=1;" vertex="1" parent="300">
+          <mxGeometry x="20" y="520" width="860" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="351" value="file_utils" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="10" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="352" value="git_utils" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="150" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="353" value="markdown (FM parse)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="290" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="354" value="graphify_adapter" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="430" y="30" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="355" value="reefiki_agent_readiness" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="570" y="30" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="356" value="reefiki_memory_contracts" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="10" y="70" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="357" value="reefiki_memory_governance" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="180" y="70" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="358" value="mimo_memory_integration" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="350" y="70" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="359" value="staged_scope_hook (pre-commit)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="520" y="70" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="35a" value="validate_frontmatter (script)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;" vertex="1" parent="350">
+          <mxGeometry x="710" y="70" width="140" height="30" as="geometry" />
+        </mxCell>
+        <!-- Tests indicator -->
+        <mxCell id="360" value="tests/ — 70+ pytest files (1-to-1 with reefiki_core modules)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=2;align=center;" vertex="1" parent="300">
+          <mxGeometry x="20" y="660" width="860" height="40" as="geometry" />
+        </mxCell>
+        <!-- SQLite + logs indicator -->
+        <mxCell id="370" value=".reefiki/  (project-local SQLite + graphify + agent-runs/)" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=center;" vertex="1" parent="300">
+          <mxGeometry x="20" y="720" width="860" height="100" as="geometry" />
+        </mxCell>
+        <!-- IDE ADAPTERS (right column) -->
+        <mxCell id="400" value="IDE Adapters (adapters/)" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="80" width="400" height="980" as="geometry" />
+        </mxCell>
+        <mxCell id="401" value="MVP: read-only docs&#xa;no live hooks yet&#xa;(proof-gated)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;align=center;" vertex="1" parent="400">
+          <mxGeometry x="20" y="40" width="360" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="410" value="claude-code/&#xa;(.claude/commands/*.md)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="400">
+          <mxGeometry x="20" y="110" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="411" value="codex/&#xa;(proof-gated adapter)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="400">
+          <mxGeometry x="210" y="110" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="412" value="cursor/&#xa;(.cursorrules stub)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="400">
+          <mxGeometry x="20" y="190" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="413" value="windsurf/&#xa;(Cascade rules)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="400">
+          <mxGeometry x="210" y="190" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="414" value="generic-agents/&#xa;(Aider, Cline, Roo)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="400">
+          <mxGeometry x="20" y="270" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="415" value="hermes/&#xa;(runtime prompts)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="400">
+          <mxGeometry x="210" y="270" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="420" value="skills/base/*  (canonical SKILL.md,&#xa;unchanged across adapters)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=center;" vertex="1" parent="400">
+          <mxGeometry x="20" y="360" width="360" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="421" value="PROOF_GATES.md  (live wiring gate)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="400">
+          <mxGeometry x="20" y="430" width="360" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="422" value="Adapters remain removable.&#xa;Don't change skill meaning.&#xa;Don't add memory runtime." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=10;align=center;" vertex="1" parent="400">
+          <mxGeometry x="20" y="480" width="360" height="60" as="geometry" />
+        </mxCell>
+        <!-- Edges: CLI -> reefiki_core groups -->
+        <mxCell id="500" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.15;entryDx=0;entryDy=0;" edge="1" parent="1" source="211" target="310">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="501" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.15;entryDx=0;entryDy=0;" edge="1" parent="1" source="213" target="330">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="502" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.15;entryDx=0;entryDy=0;" edge="1" parent="1" source="214" target="320">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="503" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.15;entryDx=0;entryDy=0;" edge="1" parent="1" source="212" target="340">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="504" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="215" target="330">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="505" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="216" target="340">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Edges: reefiki_core -> SQLite/tests -->
+        <mxCell id="510" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="350" target="370">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="511" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="370" target="360">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Edges: adapters <- reefiki_core (skills routed) -->
+        <mxCell id="520" value="routes skills" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;fontSize=10;" edge="1" parent="1" source="420" target="350">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- Edges: adapters -> proof gate -->
+        <mxCell id="521" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="410" target="420">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
